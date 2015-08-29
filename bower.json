@@ -1,0 +1,10 @@
+{
+  "name": "init.css",
+  "version": "1.0.0",
+  "main": "init.css",
+  "author": "Timur Fayzrakhmanov <hangglide.only@gmail.com>",
+  "ignore": [
+    "index.html",
+    "data/"
+  ]
+}

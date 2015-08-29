@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="init.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Exo+2:300' rel='stylesheet' type='text/css'>
+  <style>
+    /* Property inheritance test.
+     * Activate appropriate properties to see if elements inherit this value properly */
+    ._inheritance-test {
+      /*quotes: "«" "»" "‹" "›";*/            /*pass, !forms*/
+      /*cursor: not-allowed;*/                /*pass, !forms*/
+      /*caption-side: bottom;*/               /*needless*/
+      /*color: #0b9b4b;*/                     /*pass*/
+      /*direction: rtl;*/                     /*pass*/
+      /*empty-cells: hide;*/                  /*needless*/
+      font: normal normal normal 19px/22px "Exo 2"; /*pass*/
+      /*object-fit: none;*/                   /*?*/
+      /*hyphens: manual;*/                    /*experimental*/
+      /*image-rendering: pixelated;*/         /*pass*/
+      /*letter-spacing: 5px;*/                /*pass*/
+      /*list-style: circle;*/                 /*needless*/
+      /*pointer-events: none;*/               /*?*/
+      /*ruby-all: 0;*/                        /*?*/
+      /*tab-size: 20;*/                       /*pass*/
+      /*text-align: center;*/                 /*pass*/
+      /*text-decoration: underline;*/         /*pass, !inline-block elements*/
+      /*text-indent: 50px;*/                  /*pass*/
+      /*text-shadow: 1px 1px 1px red;*/       /*pass, !file, keygen*/
+      /*text-transform: uppercase;*/          /*pass, !file*/
+      /*text-rendering: geometricPrecision;*/ /*pass, !keygen*/
+      /*white-space: pre-line;*/              /*pass*/
+      /*widows: 1;*/
+      /*word-break: break-all;*/              /*2test*/
+      /*word-spacing: 30px;*/                 /*2test*/
+      /*word-wrap: break-word;*/              /*2test*/
+      /*writing-mode: vertical-rl;*/          /*pass, !input*/
+    }
+
+    /* Vertical line grid */
+    ._grid {
+      /* horizontal writing mode */
+      background-image: -moz-linear-gradient(top, #fff 21px, #ddd 22px);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(21px,#fff), color-stop(22px,#ddd));
+      background-image: -webkit-linear-gradient(top, #fff 21px, #ddd 22px);
+      background-image: -o-linear-gradient(top, #fff 21px, #ddd 22px);
+      background-image: -ms-linear-gradient(top, #fff 21px, #ddd 22px);
+      background-image: linear-gradient(to bottom, #fff 21px, #ddd 22px);
+      background-repeat: repeat-y;
+      background-position: 0 1px;
+      background-size: 100% 22px;
+      /* vertical writing mode */
+      /*background-image: linear-gradient(to right, #fff 21px, #ddd 22px);*/
+      /*background-repeat: repeat-x;*/
+      /*background-size: 22px 100%;*/
+    }
+
+    /* Tag group header */
+    ._head {
+      background: #333;
+      color: #fdfdfd;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    /* Code examples */
+    ._code {
+      font-family:monospace;
+      font-size:0.7em;
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+      color: #999;
+    }
+
+    /* Test top line at the end of each tag group */
+    ._test-line {
+      position: relative;
+    }
+    ._test-line:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top: 1px solid rgba(0,0,0,0.3);
+      content: " ";
+      width: 100%;
+    }
+
+    /* Sets */
+    .c-gray     { color: #999; }
+    .c-green    { color: forestgreen; }
+    .c-yellow   { color: gold; }
+    .c-red      { color: red; }
+    .fnwg-bold  { font-weight: bold;}
+
+    /* Main table */
+    table {
+      position: relative;
+      width: 960px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    /* Make first column taking no size and make sure the content of each row in
+     * second column is the basis for row height calculation. */
+    th {
+      color: #999;
+      line-height: 0;
+      vertical-align: middle;
+      font-size: .8em;
+    }
+  </style>
+</head>
+<body class="_grid _inheritance-test">
+<!--
+  Sections, section names and the order of tags and tag attributes
+  are carefully taken from the latest W3C specifications.
+  http://www.w3.org/TR/html51/semantics.html#contents
+  -->
+<table>
+  <caption>
+    <a href="#0"><h1 id="0" class="fnwg-bold">initcss v0.5</h1></a>
+    <p>Left side uses Emmet abbreviations to represent what you actually see on the right side.<br>Tags always have its own textual representation within.</p>
+    <p class="fnwg-bold">Legend:</p>
+    <pre>&#9;<span class="c-green">*</span> - almost stylable; possible unstylable/unhideable controls or slightly unexpected behaviour.</pre>
+    <pre>&#9;<span class="c-yellow">*</span> - limited stylization; limited number of changable properties due to hard-coded controls.</pre>
+      <pre>&#9;<span class="c-red">*</span> - almost unstylable, due to hard-coded internals or security reasons.</pre>
+    <pre>&#9;<span class="c-gray">(nothing)</span> - fully stylable.</pre>
+    <pre>&#9;<span class="c-gray"><></span> - textual HTML5 valid representation of tag within an attribute.</pre>
+    <pre>&#9;<span class="c-gray">_</span> - the duplicating name of the corresponding atrribute.</pre>
+    <pre>&#9;<span class="c-gray">..</span> - the duplicating value of previous atrribute.</pre>
+    <p class="fnwg-bold">Examples:</p>
+      <pre class="_code">&#13;&#9;input[value="<>"] -> &lt;input value="&lt;input&gt;"&gt;</pre>
+      <pre class="_code">&#13;&#9;textarea[placeholder="_"] -> &lt;textarea placeholder="placeholder"&gt;`&lt;textarea&gt;&lt;/textarea&gt;`&lt;/textarea&gt;</pre>
+      <pre class="_code">&#13;&#9;input[value="1" placeholder=".."] -> &lt;input value="1" placeholder="1"&gt;</pre>
+      <pre class="_code">&#13;&#9;nav -> &lt;nav&gt;`&lt;nav&gt;&lt;/nav&gt;`&lt;/nav&gt;</pre>
+  </caption>
+  <tbody>
+  <!--
+  Sections
+  ================================================================== -->
+  <tr> <td id="1" class="_head" colspan="2"> <a href="#1">sections</a>
+  <tr> <th> article     <td> <article>&lt;article&gt;&zwnj;&lt;/article&gt;</article>
+  <tr> <th> section     <td> <section>&lt;section&gt;&zwnj;&lt;/section&gt;</section>
+  <tr> <th> nav         <td> <nav>&lt;nav&gt;&zwnj;&lt;/nav&gt;</nav>
+  <tr> <th> aside       <td> <aside>&lt;aside&gt;&zwnj;&lt;/aside&gt;</aside>
+  <tr> <th> h1          <td> <h1>&lt;h1&gt;&zwnj;&lt;/h1&gt;</h1>
+  <tr> <th> h2          <td> <h2>&lt;h2&gt;&zwnj;&lt;/h2&gt;</h2>
+  <tr> <th> h3          <td> <h3>&lt;h3&gt;&zwnj;&lt;/h3&gt;</h3>
+  <tr> <th> h4          <td> <h4>&lt;h4&gt;&zwnj;&lt;/h4&gt;</h4>
+  <tr> <th> h5          <td> <h5>&lt;h5&gt;&zwnj;&lt;/h5&gt;</h5>
+  <tr> <th> h6          <td> <h6>&lt;h6&gt;&zwnj;&lt;/h6&gt;</h6>
+  <tr> <th> header      <td> <header>&lt;header&gt;&zwnj;&lt;/header&gt;</header>
+  <tr> <th> footer      <td> <footer>&lt;footer&gt;&zwnj;&lt;/footer&gt;</footer>
+  <tr> <th> address     <td> <address>&lt;address&gt;&zwnj;&lt;/address&gt;</address>
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Grouping content
+  ================================================================== -->
+  <tr> <td id="2" class="_head" colspan="2"> <a href="#2">grouping content</a>
+  <tr> <th> p           <td> <p>&lt;p&gt;&zwnj;&lt;/p&gt;</p>
+  <tr> <th> hr          <td> &zwj;<hr>
+  <tr> <th> pre         <td> <pre>&lt;pre&gt;&zwnj;&lt;/pre&gt;</pre>
+  <tr> <th> blockquote  <td> <blockquote>&lt;blockquote&gt;&zwnj;&lt;/blockquote&gt;</blockquote>
+  <tr> <th> ol > li <td> <ol>&lt;ol&gt;<li>&lt;li&gt;&zwnj;&lt;/li&gt;</li>&lt;/ol&gt;</ol>
+  <tr> <th> ul > li <td> <ul>&lt;ul&gt;<li>&lt;li&gt;&zwnj;&lt;/li&gt;</li>&lt;/ul&gt;</ul>
+  <tr> <th> dl > dt+dd
+    <td> <dl>&lt;dl&gt;<dt>&lt;dt&gt;&zwnj;&lt;/dt&gt;</dt><dd>&lt;dd&gt;&zwnj;&lt;/dd&gt;</dd>&lt;/dl&gt;</dl>
+  <tr> <th> figure > figcation
+    <td> <figure>&lt;figure&gt;<figcaption>&lt;figcaption&gt;&zwnj;&lt;/figcaption&gt;</figcaption>&lt;/figure&gt;</figure>
+  <tr> <th> main        <td> <main>&lt;main&gt;&zwnj;&lt;/main&gt;</main>
+  <tr> <th> div         <td> <div>&lt;div&gt;&zwnj;&lt;/div&gt;</div>
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Text-level semantics
+  ================================================================== -->
+  <tr> <td id="3" class="_head" colspan="2"> <a href="#3">text-level semantics</a>
+  <tr> <th> a[href=#]   <td> <a href="#">&lt;a&gt;&zwnj;&lt;/a&gt;</a>
+  <tr> <th> em          <td> <em>&lt;em&gt;&zwnj;&lt;/em&gt;</em>
+  <tr> <th> strong      <td> <strong>&lt;strong&gt;&zwnj;&lt;/strong&gt;</strong>
+  <tr> <th> small       <td> <small>&lt;small&gt;&zwnj;&lt;/small&gt;</small>
+  <tr> <th> s           <td> <s>&lt;s&gt;&zwnj;&lt;/s&gt;</s>
+  <tr> <th> cite        <td> <cite>&lt;cite&gt;&zwnj;&lt;/cite&gt;</cite>
+  <tr> <th> q           <td> <q>&lt;q&gt;&zwnj;&lt;/q&gt;</q>
+  <tr> <th> dfn         <td> <dfn>&lt;dfn&gt;&zwnj;&lt;/dfn&gt;</dfn>
+  <tr> <th> abbr[title="title"] <td> <abbr title="title">&lt;abbr title="title"&gt;&zwnj;&lt;/abbr&gt;</abbr>
+  <tr> <th> data[value="value"] <td> <data value="value">&lt;data value="value"&gt;&zwnj;&lt;/data&gt;</data>
+  <tr> <th> time        <td> <time>&lt;time&gt;&zwnj;&lt;/time&gt;</time>
+  <tr> <th> code        <td> <code>&lt;code&gt;&zwnj;&lt;/code&gt;</code>
+  <tr> <th> var         <td> <var>&lt;var&gt;&zwnj;&lt;/var&gt;</var>
+  <tr> <th> samp        <td> <samp>&lt;samp&gt;&zwnj;&lt;/samp&gt;</samp>
+  <tr> <th> kbd         <td> <kbd>&lt;kbd&gt;&zwnj;&lt;/kbd&gt;</kbd>
+  <tr> <th> sub         <td> <sub>&lt;sub&gt;&zwnj;&lt;/sub&gt;</sub>
+  <tr> <th> sup         <td> <sup>&lt;sup&gt;&zwnj;&lt;/sup&gt;</sup>
+  <tr> <th> i           <td> <i>&lt;i&gt;&zwnj;&lt;/i&gt;</i>
+  <tr> <th> b           <td> <b>&lt;b&gt;&zwnj;&lt;/b&gt;</b>
+  <tr> <th> u           <td> <u>&lt;u&gt;&zwnj;&lt;/u&gt;</u>
+  <tr> <th> mark        <td> <mark>&lt;mark&gt;&zwnj;&lt;/mark&gt;</mark>
+  <tr> <th> bdi         <td> <bdi>&lt;bdi&gt;&zwnj;&lt;/bdi&gt;</bdi>
+  <tr> <th> bdo[dir="ltr"]  <td> <bdo dir="ltr">&lt;bdo dir="ltr"&gt;&zwnj;&lt;/bdo&gt;</bdo>
+  <tr> <th> span        <td><span>&lt;span&gt;&zwnj;&lt;/span&gt;</span>
+  <tr> <th> wbr         <td> verylong&lt;wbr&gt;<wbr>longword
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Text-level semantics (Ruby)
+  ================================================================== -->
+  <tr> <td id="4" class="_head" colspan="2"> <a href="#4">text-level semantics (ruby)</a>
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+    <!--<ruby>&lt;ruby&gt;<rt>as</rt>&lt;/ruby&gt;</ruby>-->
+  </tbody>
+  <tbody>
+  <!--
+  Edits
+  ================================================================== -->
+  <tr> <td id="5" class="_head" colspan="2"> <a href="#5">edits</a>
+  <tr> <th> del         <td> <del>&lt;del&gt;&zwnj;&lt;/del&gt;</del>
+  <tr> <th> ins         <td> <ins>&lt;ins&gt;&zwnj;&lt;/ins&gt;</ins>
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Embedded content
+  ================================================================== -->
+  <tr> <td id="6" class="_head" colspan="2"> <a href="#6">embedded content</a>
+  <tr> <th> img[src="data/img.png"]        <td> <img src="data/img.png">
+  <tr> <th> iframe[src="data/frame.html"]  <td> <iframe src="data/frame.html"></iframe>
+  <tr> <th> object[data="data/frame.html"] <td> <object data="data/frame.html"></object>
+  <tr> <th> video[controls src="data/video.mp4"] <td> <video controls src="data/video.mp4"></video>
+  <tr> <th> audio[controls] > source[src="data/audio.mp3"] <td> <audio controls><source src="data/audio.mp3"></audio>
+  <tr> <th> map <td> <map>&lt;map&gt;&zwnj;&lt;/map&gt;</map>
+  <tr> <th> svg <td> <svg><circle cx="10" cy="10" r="8" stroke="black" stroke-width="2" fill="white"></svg>
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Tabular data
+  ================================================================== -->
+  <tr> <td id="7" class="_head" colspan="2"> <a href="#7">tabular data</a>
+  <tr> <th> table > tr > th  <td> &lt;th&gt;&zwnj;&lt;/th&gt;
+  <tr> <th> table > tr > td  <td> &lt;td&gt;&zwnj;&lt;/td&gt;
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Forms
+  ================================================================== -->
+  <tr> <td id="8" class="_head" colspan="2"> <a href="#8">forms</a>
+  <tr> <th> form  <td> <form>&lt;form&gt;&zwnj;&lt;/form&gt;</form>
+  <tr> <th> label <td> <label>&lt;label&gt;&zwnj;&lt;/label&gt;</label>
+  <tr> <th> input[value="_" placeholder="_"]     <td> <input placeholder="placeholder" value="value&zwnj;">
+  <tr> <th> input[type="text" value="_" placeholder="_"]<span class="c-green">*</span>
+    <td><input type="text"  value="value&zwnj;" placeholder="placeholder&zwnj;"><tr> <th> input[type="search" value="_" placeholder="_"]<span class="c-green">*</span>
+    <td><input type="search"  value="value&zwnj;" placeholder="placeholder&zwnj;"><tr> <th> input[type="tel" value="_" placeholder="_"]<span class="c-green">*</span>
+    <td><input type="tel"  value="value&zwnj;" placeholder="placeholder&zwnj;"><tr> <th> input[type="url" value="http://initcss.io" placeholder=".."]<span class="c-green">*</span>
+    <td><input type="url"  value="http://initcss.io" placeholder="http://initcss.io"><tr> <th> input[type="email" value="my@email.com" placeholder=".."]<span class="c-green">*</span>
+    <td><input type="email"  value="my@email.com" placeholder="my@email.com"><tr> <th> input[type="password" value="_" placeholder="_"]<span class="c-green">*</span>
+    <td><input type="password"  value="value" placeholder="placeholder"><tr> <th> input[type="datetime" value="1970-01-31T12:00Z" plch=".."]<span class="c-green">*</span>
+    <td> <input type="datetime"  value="1970-01-31T12:00Z" placeholder="1970-01-31T12:00Z">
+  <tr> <th> input[type="date" value="1970-01-31" placeholder=".."]<span class="c-green">*</span>
+    <td> <input type="date"  value="1970-01-31" placeholder="1970-01-31">
+  <tr> <th> input[type="month" value="1970-01" placeholder=".."]<span class="c-green">*</span>
+    <td> <input type="month"  value="1970-01" placeholder="1970-01">
+  <tr> <th> input[type="week" value="1970-W01" placeholder=".."]<span class="c-green">*</span>
+    <td> <input type="week"  value="1970-W01" placeholder="1970-W01">
+  <tr> <th> input[type="time" value="12:00" placeholder=".."]<span class="c-green">*</span>
+    <td> <input type="time"  value="12:00" placeholder="12:00">
+  <tr> <th> input[type="number" value="100" placeholder=".."]<span class="c-green">*</span>
+    <td> <input type="number" value="100" placeholder="100">
+  <tr> <th> input[type="range" min=0 max=100 step=10 value=30]<span class="c-red">*</span>
+    <td> <input type="range" min=0 max=100 step=10 value=30>
+  <tr> <th> input[type="color" value="#999999"]<span class="c-yellow">*</span>  <td> <input type="color" value="#999999">
+  <tr> <th> input[type="checkbox"]<span class="c-red">*</span>  <td> <input type="checkbox">
+  <tr> <th> input[type="radio"]<span class="c-red">*</span>     <td> <input type="radio">
+  <tr> <th> input[type="file"]<span class="c-yellow">*</span>   <td> <input type="file">
+  <tr> <th> input[type="image" src="data/img.png"]<span class="c-yellow">*</span>  <td>
+    <input type="image" src="data/img.png">
+  <tr> <th> input[type="submit" value="<>"]<span class="c-green">*</span>  <td>
+    <input type="submit" value='&lt;input type="submit"&zwnj;&gt;'/>
+  <tr> <th> input[type="reset" value="<>"]<span class="c-green">*</span>   <td>
+    <input type="reset" value='&lt;input type="reset"&zwnj;&gt;'/>
+  <tr> <th> input[type="button" value="<>"]<span class="c-green">*</span>  <td>
+    <input type="button" value='&lt;input type="button"&zwnj;&gt;'/>
+  <tr> <th> button <td> <button>&lt;button&gt;&zwnj;&lt;/button&gt;</button>
+  <tr> <th> select<span class="c-yellow">*</span> > optgroup[label="<>"]<span class="c-yellow">*</span> > option*2 <span class="c-yellow">*</span>
+    <td>
+      <select>
+        <optgroup label="&lt;optgroup&gt;">
+          <option>&lt;option&gt;&zwnj;&lt;/option&gt;</option>
+          <option>&lt;option&gt;&zwnj;&lt;/option&gt;</option>
+        </optgroup>
+      </select>
+    </td>
+  <tr> <th> select[multiple]<span class="c-yellow">*</span> > optgroup[label="<>"]<span class="c-yellow">*</span> > option*2 <span class="c-yellow">*</span>
+    <td>
+      <select multiple>
+        <optgroup label="&lt;optgroup&gt;">
+          <option>&lt;option&gt;&zwnj;&lt;/option&gt;</option>
+          <option>&lt;option&gt;&zwnj;&lt;/option&gt;</option>
+        </optgroup>
+      </select>
+    </td>
+  <tr> <th>datalist[id="datalist"] > option[value="<>"]*2<span class="c-red">*</span>
+    <td>
+      <span class="c-gray">attached to the element below</span>
+      <datalist id="datalist">
+        <option value='&lt;option&gt;'>
+        <option value='&lt;option&gt;'>
+      </datalist>
+    </td>
+  <tr> <th>&rdsh;input[value="_" list="datalist"]<span class="c-green">*</span>
+    <td> <input value='&lt;input list="datalist"/&gt;' list="datalist"/>
+  <tr> <th>textarea[placeholder="_"]<span class="c-green">*</span>
+    <td> <textarea placeholder="placeholder">&lt;textarea&gt;&zwnj;&lt;/textarea&gt;</textarea>
+  <tr> <th> output <td> <output>&lt;output&gt;&zwnj;&lt;/output&gt;</output>
+  <tr> <th> keygen<span class="c-red">*</span></span>   <td> <keygen></keygen>
+  <tr> <th> progress[max=100 value=30]<span class="c-red">*</span></span>
+    <td> <progress max=100 value=30>&lt;meter&gt;&zwnj;&lt;/meter&gt;</progress>
+  <tr> <th> meter[min=0 max=100 value=30]<span class="c-red">*</span></span>
+    <td> <meter min=0 max=100 value=30>&lt;meter&gt;&zwnj;&lt;/meter&gt;</meter>
+  <tr> <th> fieldset > legend
+    <td>
+      <fieldset>
+        <legend>&lt;legend&gt;&zwnj;&lt;/legend&gt;</legend>
+        &rdsh;&lt;fieldset&gt;&zwnj;&lt;/fieldset&gt;
+      </fieldset>
+    </td>
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Interactive elements
+  ================================================================== -->
+  <tr> <td id="9" class="_head" colspan="2"> <a href="#9">interactive elements</a>
+  <tr> <th> details > summary
+    <td>
+      <details>
+        <summary>&lt;summary&gt;&zwnj;&lt;/summary&gt;</summary>
+        &rdsh;&lt;details&gt;&zwnj;&lt;/details&gt;
+      </details>
+    </td>
+    <!-- menu, menuitem (invisible) -->
+  <tr> <th> dialog <td> &zwj;<dialog>&lt;dialog&gt;&zwnj;&lt;/dialog&gt;</dialog>
+  <tr> <td class="_test-line" colspan="2"> &nbsp;
+  </tbody>
+  <tbody>
+  <!--
+  Scripting
+  ================================================================== -->
+  <!--<tr> <td id="10" class="_head" colspan="2"> <a href="#10">scripting</a>-->
+    <!--<canvas></canvas>-->
+  <!--<tr> <td class="_test-line" colspan="2"> &nbsp;-->
+  </tbody>
+  <tbody>
+</table>
+</body>
+</html>
+
