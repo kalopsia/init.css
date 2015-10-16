@@ -1,44 +1,103 @@
-#init.css
+# init.css
 
-[![Join the chat at https://gitter.im/kalopsia/element](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kalopsia/element?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <img align="right" height="300" src="https://dl.dropboxusercontent.com/u/2930233/server/initcss/initcss.png">
+[![Join the chat at https://gitter.im/kalopsia/element](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kalopsia/element?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <img align="right" height="340" src="https://dl.dropboxusercontent.com/u/2930233/server/initcss/initcss.jpg">
 
 **init.css** is reset stylesheet for those who wants start styling from a blank sheet. The goal of init.css is similar to popular Eric Meyer's [Reset CSS](http://meyerweb.com/eric/tools/css/reset/):
 
 > reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on
 
-However, it also synchronizes vertical rhythm to make sure all elements have consistent line height according to document's line-height and reset elements so that they looks like ordinary `div`/`span` tag: correct property inheritance, no borders, background, margin etc.
+However, it also synchronizes vertical rhythm to make sure all elements have consistent line height according to your base `line-height`. **init.css** resets elements so that they looks like ordinary `div` or `span` tags: correct property inheritance, no borders, background, margin etc.
 
-**[Download v1.0](https://github.com/kalopsia/init.css/archive/master.zip)**
+**[Download v1.0](https://github.com/timfayz/init.css/archive/master.zip)**
 
-##Install
 
-3. Optionally, you change exoposed CSS properties the tags only affects vertical
-   rhtyhm in accordenance with your document's line-height. (see the last section)
-Next, place your css file after init.css and start to stylize as you want.
+## What does it need for?
 
-##What does it do?
+init.css arose as a result of developing [SEM methodology](https://github.com/timfayz/SEM) and [elementcss](https://github.com/timfayz/elementcss). The main idea is to style document from a *blank sheet* where HTML tags has no differences in appearance. So you can use tags for the semantic purposes rather than *styles at top of this tag*. Here are the main purposes:
 
-1. Corrects default property inheritance of all elements in accordance with W3C specifications.
-2. Brings consistent look of *almost* all elements across different browsers - the same font, font-weight, line-height, no borders, no background etc.
-3. Make sure all elements have the same line height.
-3. Doesn't use high order selectors (like `input[type="text"]`) to be sure you can overwrite them by regular `.class`.
+0. To correct default property inheritance of all elements in accordance with W3C specifications;
+0. To bring consistent look of *almost* all HTML elements across different browsers - the same font, font-weight, line-height, no borders, no background etc;
+0. To make sure all elements have the same line height;
 
-##How it looks like?
+init.css doesn't use high order selectors (like `input[type="text"]`) to be sure you can overwrite any "defaults" by regular `.class`.
 
-`initcss.html` page opened in Firefox 40.0a2 running on Ubuntu:
+## How it looks like?
 
-1. Using nothing (default UA styles) - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/default.png)
-2. Using init.css - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/initcss.png)
-3. Using [Reset CSS 2.0](http://meyerweb.com/eric/tools/css/reset/) - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/resetcss.png)
-4. Using [Normalize.css 3.0.2](https://necolas.github.io/normalize.css/) *(for fun :)* - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/normalizecss.png)
+`test.html` page opened in Firefox 40.0 running on Ubuntu:
+
+1. **Using nothing** (default UA styles) - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/default.png)
+2. **Using init.css** - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/initcss.png)
+3. **Using [Reset CSS 2.0](http://meyerweb.com/eric/tools/css/reset/)** - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/resetcss.png)
+4. **Using [Normalize.css 3.0.2](https://necolas.github.io/normalize.css/)** (for fun :) - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/normalizecss.png)
 
 There is no very much difference doing the same in the last versions of Chrome, Opera, Safari and IE.
 
-##How it works?
-Here are the main sections of init.css source code in sequence in which it goes in the code flow:
+## Quick start
 
-1. Correcting the displaying of new html5 tags across different browsers. Sample from the source:
+- Get **init.css**. There are several ways:
+  - [Download the latest release](https://github.com/timfayz/init.css/archive/master.zip)
+  - Clone the repo: `git clone https://github.com/timfayz/init.css.git`
+  - Install with [Bower](http://bower.io/): `bower install init.css`
+
+- Link `init.css` into your `<head>` prior to any styles:
+```HTML
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="path-to/init.css">
+    <link rel="stylesheet" href="your-styles.css">
+    <title></title>
+</head>
+<body>
+...
+</body>
+</html>
+```
+- Place your css file after `init.css` and start to stylize as you want.
+- (Optionally) Place it at the top of your styles. It needs to make sure no elements break you vertical rhythm.
 ```CSS
+/* Here are tags having random `height` values across different browsers.
+ * Set them manually to make sure all tags obey to your vertical rhythm 
+ * preferences, else set to `auto` or remove. As a rule, `height` is based 
+ * on document's `line-height` value. Rendering is more precise when the
+ * resulting value is integer pixel. For example:
+ *    Note: 1em = 16px if user didn't touch UA's default `font-size` preference
+ *    html { font-size: 1em; line-height: 1.2; }   16*1.2 = 19.2px (wrong)
+ *    html { font-size: 1em; line-height: 1.25; }  16*1.25 = 20px  (correct)
+ *    img, textarea { height: 2.5rem; } (or 1.25rem, 3.75rem, 20px,40px etc)
+ *
+ * To calculate integer-pixel divide a required value by 16: 19px/16 = 1,1875
+ */
+
+html {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1em;
+  line-height: 1.25;
+}
+
+img, iframe, object, svg,
+input, textarea, select, progress, keygen, meter {
+  height: 1.25rem;
+}
+
+video, audio, select[multiple] {
+  height: 2.5rem;
+}
+```
+## How it works?
+Here are the main steps of what init.css actually do. The sequence is the same as in source code:
+
+0. **HTML5 display correction**. It corrects the displaying of the new HTML5 tags across different browsers.
+0. **Normalize**. It normalize each group of tag and makes UA (User agent) styles consistent across different browsers.
+0. **Reset**. It leads a look of each tag to uniform state - the same font, color, line-height etc.
+
+So here are the short samples of each step from the source code:
+```CSS
+/* ==========================================================================
+   1. HTML5 display correction 
+   ========================================================================== */
 ...
 article,
 aside,
@@ -55,11 +114,10 @@ summary {
   display: block;
 }
 ...
-```
 
-2. Normalizing each group of tags. It makes UA (User agent) styles consistent across different browsers. Samples from source:
-```CSS
-...
+/* ==========================================================================
+   2. Normalize
+   ========================================================================== */
 /*
  * We don't apply `border-box` model by default. `inherit` value gives easier way to
  * change the box-sizing in plugins or other components that leverage other behavior.
@@ -83,12 +141,11 @@ textarea,
   user-select: text;
 }
 ...
-```
 
-3. Resetting each tag group. It leads tags' look to uniform state - the same font, color, line-height etc. Samples from source:
-```CSS
-...
-form, label,
+/* ==========================================================================
+   3. Reset
+   ========================================================================== */
+..., form, label,
 input, button, select, ...
 {
   margin: 0;
@@ -117,9 +174,18 @@ button, select {
 }
 ...
 ```
+init.css is based on two main projects: [Normalize.css](https://necolas.github.io/normalize.css/) and [Reset CSS](http://meyerweb.com/eric/tools/css/reset/). However it's not just a copy paste, but reconstruction, mix and much of additions.
 
-##License
+## Browser Support
 
-Copyright (c) 2015 init.css [Authors]()
+Note that Firefox and IE page layout rendering havn't perfect-pixel precise. So if you try to get "perfect-pixel" precise of your vertical rhythm you may see tiny element displacement. Zooming page gives better precise. 
+
+![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+Latest ✔ | Latest ✔ | 9+ ✔ | Latest ✔ | 5.1+ ✔ |
+
+## License
+
+Copyright (c) 2015 init.css Timur Fayzrakhmanov
 
 Licensed under the MIT License
