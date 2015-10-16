@@ -2,18 +2,18 @@
 
 [![Join the chat at https://gitter.im/kalopsia/element](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kalopsia/element?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <img align="right" height="340" src="https://dl.dropboxusercontent.com/u/2930233/server/initcss/initcss.jpg">
 
-**init.css** is reset stylesheet for those who wants start styling from a blank sheet. The goal of init.css is similar to popular Eric Meyer's [Reset CSS](http://meyerweb.com/eric/tools/css/reset/):
+[**init.css**](http://timfayz.github.io/init.css) is reset stylesheet for those who wants start styling from a blank sheet. The goal of init.css is similar to popular Eric Meyer's [Reset CSS](http://meyerweb.com/eric/tools/css/reset/):
 
 > reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on
 
 However, it also synchronizes vertical rhythm to make sure all elements have consistent line height according to your base `line-height`. **init.css** resets elements so that they looks like ordinary `div` or `span` tags: correct property inheritance, no borders, background, margin etc.
 
-**[Download v1.0](https://github.com/timfayz/init.css/archive/master.zip)**
+**[Download v1.0.0](https://github.com/timfayz/init.css/archive/master.zip)**
 
 
 ## What does it need for?
 
-init.css arose as a result of developing [SEM methodology](https://github.com/timfayz/SEM) and [elementcss](https://github.com/timfayz/elementcss). The main idea is to style document from a *blank sheet* where HTML tags has no differences in appearance. So you can use tags for the semantic purposes rather than *styles at top of this tag*. Here are the main purposes:
+init.css arose as a result of developing [SEM methodology](https://github.com/timfayz/SEM) and [elementcss](https://github.com/timfayz/elementcss). The main idea is to style document from a *blank sheet* where HTML tags has no differences in appearance. So you can use much of tags more likely for the *semantic purposes* rather than basis for a particular style. Here are the main purposes:
 
 0. To correct default property inheritance of all elements in accordance with W3C specifications;
 0. To bring consistent look of *almost* all HTML elements across different browsers - the same font, font-weight, line-height, no borders, no background etc;
@@ -23,7 +23,7 @@ init.css doesn't use high order selectors (like `input[type="text"]`) to be sure
 
 ## How it looks like?
 
-`test.html` page opened in Firefox 40.0 running on Ubuntu:
+[`test.html`](http://timfayz.github.io/init.css) page opened in Firefox 40.0 running on Ubuntu:
 
 1. **Using nothing** (default UA styles) - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/default.png)
 2. **Using init.css** - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/initcss.png)
@@ -39,7 +39,7 @@ There is no very much difference doing the same in the last versions of Chrome, 
   - Clone the repo: `git clone https://github.com/timfayz/init.css.git`
   - Install with [Bower](http://bower.io/): `bower install init.css`
 
-- Link `init.css` into your `<head>` prior to any styles:
+- Link `init.css` into your `<head>` and place your own stylesheet(s) **after** the file:
 ```HTML
 <!DOCTYPE html>
 <html>
@@ -54,8 +54,7 @@ There is no very much difference doing the same in the last versions of Chrome, 
 </body>
 </html>
 ```
-- Place your css file after `init.css` and start to stylize as you want.
-- (Optionally) Place it at the top of your styles. It needs to make sure no elements break you vertical rhythm.
+- Now you can start to stylize as you want. Optionally, place the following code at the top of your styles. It needs to make sure no elements break you vertical rhythm.
 ```CSS
 /* Here are tags having random `height` values across different browsers.
  * Set them manually to make sure all tags obey to your vertical rhythm 
@@ -174,11 +173,11 @@ button, select {
 }
 ...
 ```
-init.css is based on two main projects: [Normalize.css](https://necolas.github.io/normalize.css/) and [Reset CSS](http://meyerweb.com/eric/tools/css/reset/). However it's not just a copy paste, but reconstruction, mix and much of additions.
+init.css is based on two main projects: [Normalize.css](https://necolas.github.io/normalize.css/) and [Reset CSS](http://meyerweb.com/eric/tools/css/reset/). However it's not just a copy-paste, but reconstruction, mix and much of additions.
 
 ## Browser Support
 
-Note that Firefox and IE page layout rendering havn't perfect-pixel precise. So if you try to get "perfect-pixel" precise of your vertical rhythm you may see tiny element displacement. Zooming page gives better precise. 
+Note that Firefox and IE page layout rendering havn't perfect-pixel precise. So if you try to get "perfect-pixel" vertical rhythm you may see some tiny element displacement. Zooming page gives better precise. 
 
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
