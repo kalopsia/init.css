@@ -1,22 +1,14 @@
 /*!
  * init.css v1.0.0 - styling from scratch.
- * MIT License, http://github.com/kalopsia/init.css
- * thanks to:
- * normalize.css v3.0.2, http://git.io/normalize
- * reset CSS 2.0, http://meyerweb.com/eric/tools/css/reset/
+ * MIT License, http://github.com/timfayz/init.css
  */
 
 /*
- * Sections, section names and the order of tag/attribute selectors are carefully
- * taken from the latest W3C specification.
+ * Most of headings as well as the order of tag/attribute selectors 
+ * are carefully taken from the latest W3C specification:
  * http://www.w3.org/TR/html51/semantics.html#contents
- *
- * Firefox and IE page layout rendering havn't perfect-pixel precise and you
- * may see tiny element displacement. Zooming page gives better precise.
- *
- * initcss designed so that there is almost no declarations you can't overwrite by a
- * single class. The goal is to be *transparence* to make sure you don't need additional
- * tricks to overwrite defaults.
+ * Thanks to normalize.css (http://git.io/normalize) and
+ * Reset CSS (http://meyerweb.com/eric/tools/css/reset/).
  */
 
 /* ==========================================================================
@@ -599,61 +591,32 @@ canvas {
 
 
 /* ==========================================================================
-   3. Exposed options
-   ========================================================================== */
+ * 3. Exposed options
+ * ==========================================================================
+ * Here are tags having random `height` values across different browsers.
+ * Set them manually to prevent breaking vertical rhythm, else set to `auto` 
+ * or remove. `height` should be equal to document's `line-height` and the 
+ * resulting value should be integer pixel. For example:
+ *    Note: 1em = 16px if user didn't touch UA's default `font-size` preference
+ *    html { font-size: 1em; line-height: 1.2; }   16*1.2 = 19.2px (wrong)
+ *    html { font-size: 1em; line-height: 1.25; }  16*1.25 = 20px  (correct)
+ *    img  { height: 1.25rem; } (or 2.5rem, 3.75rem, 20px,40px etc)
+ *
+ * To calculate integer-pixel divide a required value by 16: 19px/16 = 1,1875
+ */
 
 html {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1.25;
 }
 
-/* Height overwrite
- * Here are tags having random `height` values across different browsers.
- * Set them manually if you want to prevent breaking vertical rhythm, else
- * set to `auto`. The height should be equal to your document's line-height and the
- * resulting value should be integer pixel. For example:
- *    px example:
- *    html { line-height: 17px; }
- *    img  { height: 17px; } (or 34px, 51px etc)
- *
- *    rem/em/unitless example:
- *    html { font-size: 16px; line-height: 1.2; }   16*1.2 = 19.2px (!) wrong
- *    html { font-size: 16px; line-height: 1.25; }  16*1.25 = 20px (✓) correct
- *    img  { height: 1.25; } (or 2.5, 3.75 etc)
- *
- * To calculate integer-pixel-value in rem/em/unitless - divide a given value by
- * corresponding font-size in px. For example: 19px/16px = 1,1875
- */
+img, iframe, object, svg,
+input, textarea, select, progress, keygen, meter {
+  height: auto;
+}
 
-img {
-  height: 22px;
-}
-video, audio {
-  height: 44px;
-}
-iframe, object, svg {
-  height: 22px;
-}
-input {
-  height: 22px;
-}
-textarea {
-  height: 22px;
-}
-select[multiple] {
-  height: 44px;
-}
-select {
-  height: 22px;
-}
-progress {
-  height: 22px;
-}
-keygen {
-  height: 22px;
-}
-meter {
-  height: 22px;
+video, audio, select[multiple] {
+  height: auto;
 }
