@@ -2,8 +2,11 @@
   "name": "init.css",
   "version": "1.0.0",
   "main": "init.css",
-  "author": "Timur Fayzrakhmanov <timfayz.only@gmail.com>",
+  "authors": [
+    "Timur Fayzrakhmanov <timfayz.only@gmail.com> (https://timfayz.github.io)"
+  ],
   "homepage": "https://github.com/timfayz/init.css",
+  "license": "MIT",
   "ignore": [
     "data/"
   ]
