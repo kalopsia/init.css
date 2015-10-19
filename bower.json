@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "init.css",
   "author": "Timur Fayzrakhmanov <timfayz.only@gmail.com>",
+  "homepage": "https://github.com/timfayz/init.css",
   "ignore": [
     "data/"
   ]
