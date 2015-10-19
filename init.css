@@ -1,22 +1,14 @@
 /*!
  * init.css v1.0.0 - styling from scratch.
- * MIT License, http://github.com/kalopsia/init.css
- * thanks to:
- * normalize.css v3.0.2, http://git.io/normalize
- * reset CSS 2.0, http://meyerweb.com/eric/tools/css/reset/
+ * MIT License, http://github.com/timfayz/init.css
  */
 
 /*
- * Sections, section names and the order of tag/attribute selectors are carefully
- * taken from the latest W3C specification.
+ * Most of headings and the order of tag/attribute selectors 
+ * are carefully taken from the latest W3C specification:
  * http://www.w3.org/TR/html51/semantics.html#contents
- *
- * Firefox and IE page layout rendering havn't perfect-pixel precise and you
- * may see tiny element displacement. Zooming page gives better precise.
- *
- * initcss designed so that there is almost no declarations you can't overwrite by a
- * single class. The goal is to be *transparence* to make sure you don't need additional
- * tricks to overwrite defaults.
+ * Thanks to normalize.css (http://git.io/normalize) and
+ * Reset CSS (http://meyerweb.com/eric/tools/css/reset/).
  */
 
 /* ==========================================================================
