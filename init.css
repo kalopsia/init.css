@@ -4,7 +4,7 @@
  */
 
 /*
- * Most of headings and the order of tag/attribute selectors 
+ * Most of headings and the order of tag/attribute selectors
  * are carefully taken from the latest W3C specification:
  * http://www.w3.org/TR/html51/semantics.html#contents
  * Thanks to normalize.css (http://git.io/normalize) and
@@ -413,13 +413,11 @@ span {
 /* Remove the gray background color from active links in IE 10. */
 a {
   background: none;
-}
-
-/* Reset `color` and `text-decoration` for links with hyper reference */
-[href] {
   color: inherit;
   text-decoration: inherit;
 }
+
+/* Reset `color` and `text-decoration` for links with hyper reference (deprecated) */
 
 /* Edits
    ========================================================================== */
