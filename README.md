@@ -1,6 +1,6 @@
 # init.css
 
-[![Join the chat at https://gitter.im/kalopsia/element](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kalopsia/element?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <img align="right" height="340" src="https://dl.dropboxusercontent.com/u/2930233/server/initcss/initcss.jpg">
+[![Join the chat at https://gitter.im/kalopsia/element](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kalopsia/element?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <img align="right" height="340" src="https://pictr.com/images/2017/10/05/6abeaa192022b7adcebbd772fa835d43.jpg">
 
 [**init.css**](http://timfayz.github.io/init.css) is reset stylesheet for those who wants start styling from a blank sheet. The goal of init.css is similar to popular Eric Meyer's [Reset CSS](http://meyerweb.com/eric/tools/css/reset/):
 
@@ -25,10 +25,10 @@ init.css doesn't use high order selectors (like `input[type="text"]`) to be sure
 
 [`test.html`](http://timfayz.github.io/init.css) page opened in Firefox 40.0 running on Ubuntu:
 
-1. **Using nothing** (default UA styles) - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/default.png)
-2. **Using init.css** - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/initcss.png)
-3. **Using [Reset CSS 2.0](http://meyerweb.com/eric/tools/css/reset/)** - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/resetcss.png)
-4. **Using [Normalize.css 3.0.2](https://necolas.github.io/normalize.css/)** (for fun :) - [screenshot](https://dl.dropboxusercontent.com/u/2930233/server/initcss/screenshots/normalizecss.png)
+1. **Using nothing** (default UA styles) - [screenshot](https://pictr.com/images/2017/10/05/beabb0b1830ffb108c31e6e85651a4f2.png)
+2. **Using init.css** - [screenshot](https://pictr.com/images/2017/10/05/013821b3526ff8c4ada7403d84b4df11.png)
+3. **Using [Reset CSS 2.0](http://meyerweb.com/eric/tools/css/reset/)** - [screenshot](https://pictr.com/images/2017/10/05/03993af40c239be8d3b1b14f05bccd36.png)
+4. **Using [Normalize.css 3.0.2](https://necolas.github.io/normalize.css/)** (for fun :) - [screenshot](https://pictr.com/images/2017/10/05/d7de295cc8867f2aa7e5d9a8cefd6c72.png)
 
 There is no very much difference doing the same in the last versions of Chrome, Opera, Safari and IE.
 
@@ -43,7 +43,7 @@ There is no very much difference doing the same in the last versions of Chrome, 
 ```HTML
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="path-to/init.css">
     <link rel="stylesheet" href="your-styles.css">
@@ -57,8 +57,8 @@ There is no very much difference doing the same in the last versions of Chrome, 
 - Now you can start to stylize as you want. Optionally, place the following code at the top of your styles. It needs to make sure no elements break you vertical rhythm.
 ```CSS
 /* Here are tags having random `height` values across different browsers.
- * Set them manually to make sure all tags obey to your vertical rhythm 
- * preferences, else set to `auto` or remove. As a rule, `height` is based 
+ * Set them manually to make sure all tags obey to your vertical rhythm
+ * preferences, else set to `auto` or remove. As a rule, `height` is based
  * on document's `line-height` value. Rendering is more precise when the
  * resulting value is integer pixel. For example:
  *    Note: 1em = 16px if user didn't touch UA's default `font-size` preference
@@ -95,7 +95,7 @@ Here are the main steps of what init.css actually do. The sequence is the same a
 So here are the short samples of each step from the source code:
 ```CSS
 /* ==========================================================================
-   1. HTML5 display correction 
+   1. HTML5 display correction
    ========================================================================== */
 ...
 article,
@@ -177,7 +177,7 @@ init.css is based on two main projects: [Normalize.css](https://necolas.github.i
 
 ## Browser Support
 
-Note that Firefox and IE page layout rendering havn't perfect-pixel precise. So if you try to get "perfect-pixel" vertical rhythm you may see some tiny element displacement. Zooming page gives better precise. 
+Note that Firefox and IE page layout rendering havn't perfect-pixel precise. So if you try to get "perfect-pixel" vertical rhythm you may see some tiny element displacement. Zooming page gives better precise.
 
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
