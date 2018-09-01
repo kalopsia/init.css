@@ -1,10 +1,8 @@
 /*!
  * init.css v1.0.0 - styling from scratch.
  * MIT License, http://github.com/timfayz/init.css
- */
-
-/*
- * Most of headings and the order of tag/attribute selectors
+ *
+ * Most headings and order of tag/attribute selectors
  * are carefully taken from the latest W3C specification:
  * http://www.w3.org/TR/html51/semantics.html#contents
  * Thanks to normalize.css (http://git.io/normalize) and
@@ -308,6 +306,13 @@ textarea,
 /* Remove outline when object is focused or mouse is hovered/active in all browsers. */
 :active, :hover, :focus {
  outline: 0;
+}
+
+/* Make font rendering smooth */
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 /* sections */
